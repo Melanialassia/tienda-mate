@@ -9,3 +9,5 @@ export { MenuSection } from "./MenuSection";
 export { ContactForm } from "./ContactForm";
 export { FranchiseForm } from "./FranchiseForm";
 export { WorkForm } from "./WorkForm";
+export { ProductDetailModal } from "./ProductDetailModal";
+export { MenuGallery } from "./MenuGallery";

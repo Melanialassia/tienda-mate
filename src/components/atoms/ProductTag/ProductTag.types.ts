@@ -1,3 +1,3 @@
 export interface ProductTagProps {
-  tag: "nuevo" | "destacado" | "oferta";
+  tag: "nuevo" | "destacado" | "recomendado";
 }

@@ -1,0 +1,1 @@
+export { MenuGallery } from "./MenuGallery";

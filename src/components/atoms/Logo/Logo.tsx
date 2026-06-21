@@ -14,9 +14,6 @@ export function Logo({ light = false }: LogoProps) {
       >
         El Mate
       </span>
-      <span className="text-xs tracking-[0.25em] uppercase text-gold-600 font-body">
-        tienda &amp; café
-      </span>
     </Link>
   );
 }

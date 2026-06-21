@@ -16,12 +16,8 @@ export function Hero() {
       />
 
       <div className="absolute inset-0 bg-gradient-to-r from-mate-900/90 via-mate-900/60 to-transparent" />
-
       <div className="relative z-10 section-container py-20">
         <div className="max-w-xl">
-          <span className="inline-block text-gold-400 text-sm tracking-[0.3em] uppercase font-body mb-4">
-            Tienda &amp; Café
-          </span>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-cream leading-tight mb-6">
             El mate, <br />
             <span className="text-gold-400">nuestro ritual</span>
