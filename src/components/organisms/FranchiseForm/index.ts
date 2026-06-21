@@ -1,0 +1,1 @@
+export { FranchiseForm } from "./FranchiseForm";

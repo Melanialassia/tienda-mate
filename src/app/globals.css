@@ -1,26 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
+/* ================================================
+   DESIGN TOKENS — EL MATE
+   ================================================ */
 @theme inline {
+  /* Colores de la marca */
+  --color-mate-900: #0d2218;
+  --color-mate-800: #1B4332;
+  --color-mate-700: #2D6A4F;
+  --color-mate-600: #40916C;
+  --color-mate-500: #52B788;
+  --color-mate-200: #D8F3DC;
+  --color-mate-100: #f0faf4;
+
+  --color-gold-700: #a07d28;
+  --color-gold-600: #C9A94A;
+  --color-gold-500: #D4AF37;
+  --color-gold-400: #E4C55A;
+  --color-gold-100: #fdf8e8;
+
+  --color-cream: #FFF8F0;
+  --color-cream-dark: #F5EFE3;
+
+  /* Fuentes */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Lato", Arial, sans-serif;
+
+  /* shadcn/ui tokens — mapeados a la paleta */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-body);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ================================================
+   VARIABLES CSS — TEMA "EL MATE"
+   ================================================ */
+:root {
+  --background: #FFF8F0;
+  --foreground: #1A1A1A;
+  --card: #ffffff;
+  --card-foreground: #1A1A1A;
+  --popover: #ffffff;
+  --popover-foreground: #1A1A1A;
+  --primary: #1B4332;
+  --primary-foreground: #FFF8F0;
+  --secondary: #C9A94A;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F5EFE3;
+  --muted-foreground: #6B7280;
+  --accent: #C9A94A;
+  --accent-foreground: #1A1A1A;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #E5E0D8;
+  --input: #E5E0D8;
+  --ring: #2D6A4F;
+  --radius: 0.5rem;
+  --sidebar: #1B4332;
+  --sidebar-foreground: #FFF8F0;
+  --sidebar-primary: #C9A94A;
+  --sidebar-primary-foreground: #1A1A1A;
+  --sidebar-accent: #2D6A4F;
+  --sidebar-accent-foreground: #FFF8F0;
+  --sidebar-border: rgba(255,255,255,0.1);
+  --sidebar-ring: #C9A94A;
+  --chart-1: #1B4332;
+  --chart-2: #2D6A4F;
+  --chart-3: #40916C;
+  --chart-4: #C9A94A;
+  --chart-5: #D4AF37;
+}
+
+/* ================================================
+   BASE STYLES
+   ================================================ */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Lato", Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, serif;
+    line-height: 1.2;
+  }
+
+  /* Manejo de pseudo-clases de enlaces */
+  a:link {
+    color: #1B4332;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  a:visited {
+    color: #2D6A4F;
+  }
+
+  a:hover {
+    color: #C9A94A;
+  }
+
+  a:active {
+    color: #a07d28;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ================================================
+   UTILIDADES PERSONALIZADAS
+   ================================================ */
+@layer utilities {
+  .font-heading {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  .font-body {
+    font-family: "Lato", Arial, sans-serif;
+  }
+
+  .text-mate-900 { color: #0d2218; }
+  .text-mate-800 { color: #1B4332; }
+  .text-mate-700 { color: #2D6A4F; }
+  .text-mate-600 { color: #40916C; }
+  .text-mate-500 { color: #52B788; }
+  .text-gold-700  { color: #a07d28; }
+  .text-gold-600  { color: #C9A94A; }
+  .text-gold-500  { color: #D4AF37; }
+
+  .bg-mate-900 { background-color: #0d2218; }
+  .bg-mate-800 { background-color: #1B4332; }
+  .bg-mate-700 { background-color: #2D6A4F; }
+  .bg-mate-600 { background-color: #40916C; }
+  .bg-mate-200 { background-color: #D8F3DC; }
+  .bg-mate-100 { background-color: #f0faf4; }
+  .bg-gold-600  { background-color: #C9A94A; }
+  .bg-gold-500  { background-color: #D4AF37; }
+  .bg-gold-100  { background-color: #fdf8e8; }
+  .bg-cream     { background-color: #FFF8F0; }
+  .bg-cream-dark { background-color: #F5EFE3; }
+
+  .border-mate-800 { border-color: #1B4332; }
+  .border-gold-600 { border-color: #C9A94A; }
+
+  .hover\:bg-mate-700:hover { background-color: #2D6A4F; }
+  .hover\:bg-gold-500:hover  { background-color: #D4AF37; }
+  .hover\:text-gold-600:hover { color: #C9A94A; }
+  .hover\:text-mate-800:hover { color: #1B4332; }
+
+  .section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  /* Decorative gold divider */
+  .gold-divider {
+    width: 4rem;
+    height: 3px;
+    background-color: #C9A94A;
+    margin: 1rem 0;
+  }
+
+  .gold-divider-center {
+    width: 4rem;
+    height: 3px;
+    background-color: #C9A94A;
+    margin: 1rem auto;
+  }
 }
