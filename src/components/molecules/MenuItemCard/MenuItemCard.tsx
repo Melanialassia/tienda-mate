@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/atoms/ui/badge";
 import type { MenuItem } from "@/types";
 
 interface MenuItemCardProps {
@@ -20,7 +20,9 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
             {item.name}
           </h4>
           {item.tag && (
-            <Badge className={`text-xs ${TAG_STYLE[item.tag]}`}>{item.tag}</Badge>
+            <Badge className={`text-xs ${TAG_STYLE[item.tag]}`}>
+              {item.tag}
+            </Badge>
           )}
         </div>
         <p className="text-sm text-muted-foreground">{item.description}</p>

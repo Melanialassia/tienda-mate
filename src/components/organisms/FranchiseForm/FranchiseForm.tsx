@@ -1,10 +1,16 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/atoms/ui/button";
+import { Input } from "@/components/atoms/ui/input";
+import { Label } from "@/components/atoms/ui/label";
+import { Textarea } from "@/components/atoms/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/atoms/ui/select";
 import { franchiseSchema } from "@/interfaces/franchise.interface";
 import type { FranchiseFormValues } from "@/interfaces";
 import { CheckCircle } from "lucide-react";
@@ -54,13 +60,24 @@ export function FranchiseForm() {
     return (
       <div className="flex flex-col items-center gap-4 py-12 text-center">
         <CheckCircle size={48} className="text-mate-600" />
-        <h3 className="font-heading text-2xl font-bold text-mate-800">¡Solicitud recibida!</h3>
-        <p className="text-muted-foreground">Un asesor te contactará en los próximos días hábiles.</p>
+        <h3 className="font-heading text-2xl font-bold text-mate-800">
+          ¡Solicitud recibida!
+        </h3>
+        <p className="text-muted-foreground">
+          Un asesor te contactará en los próximos días hábiles.
+        </p>
         <Button
           variant="outline"
           onClick={() => {
             setSubmitted(false);
-            setValues({ name: "", email: "", phone: "", city: "", investment: "", message: "" });
+            setValues({
+              name: "",
+              email: "",
+              phone: "",
+              city: "",
+              investment: "",
+              message: "",
+            });
           }}
         >
           Enviar otra solicitud
@@ -80,7 +97,9 @@ export function FranchiseForm() {
             onChange={(e) => handleChange("name", e.target.value)}
             placeholder="Tu nombre"
           />
-          {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
+          {errors.name && (
+            <p className="text-xs text-destructive">{errors.name}</p>
+          )}
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="f-email">Email</Label>
@@ -91,7 +110,9 @@ export function FranchiseForm() {
             onChange={(e) => handleChange("email", e.target.value)}
             placeholder="tu@email.com"
           />
-          {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-xs text-destructive">{errors.email}</p>
+          )}
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="f-phone">Teléfono</Label>
@@ -101,7 +122,9 @@ export function FranchiseForm() {
             onChange={(e) => handleChange("phone", e.target.value)}
             placeholder="+54 11 ..."
           />
-          {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
+          {errors.phone && (
+            <p className="text-xs text-destructive">{errors.phone}</p>
+          )}
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="f-city">Ciudad</Label>
@@ -111,12 +134,17 @@ export function FranchiseForm() {
             onChange={(e) => handleChange("city", e.target.value)}
             placeholder="Tu ciudad"
           />
-          {errors.city && <p className="text-xs text-destructive">{errors.city}</p>}
+          {errors.city && (
+            <p className="text-xs text-destructive">{errors.city}</p>
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-1.5">
         <Label htmlFor="f-investment">Capacidad de inversión</Label>
-        <Select value={values.investment} onValueChange={(v) => handleChange("investment", v ?? "")}>
+        <Select
+          value={values.investment}
+          onValueChange={(v) => handleChange("investment", v ?? "")}
+        >
           <SelectTrigger id="f-investment">
             <SelectValue placeholder="Seleccioná una opción" />
           </SelectTrigger>
@@ -128,7 +156,9 @@ export function FranchiseForm() {
             ))}
           </SelectContent>
         </Select>
-        {errors.investment && <p className="text-xs text-destructive">{errors.investment}</p>}
+        {errors.investment && (
+          <p className="text-xs text-destructive">{errors.investment}</p>
+        )}
       </div>
       <div className="flex flex-col gap-1.5">
         <Label htmlFor="f-message">Mensaje</Label>
@@ -139,7 +169,9 @@ export function FranchiseForm() {
           onChange={(e) => handleChange("message", e.target.value)}
           placeholder="Contanos sobre tu proyecto o zona de interés..."
         />
-        {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
+        {errors.message && (
+          <p className="text-xs text-destructive">{errors.message}</p>
+        )}
       </div>
       <Button
         type="submit"

@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/atoms/ui/button";
+import { Input } from "@/components/atoms/ui/input";
+import { Label } from "@/components/atoms/ui/label";
+import { Textarea } from "@/components/atoms/ui/textarea";
 import { contactSchema } from "@/interfaces/contact.interface";
 import type { ContactFormValues } from "@/interfaces";
 import { CheckCircle } from "lucide-react";
@@ -44,8 +44,12 @@ export function ContactForm() {
     return (
       <div className="flex flex-col items-center gap-4 py-12 text-center">
         <CheckCircle size={48} className="text-mate-600" />
-        <h3 className="font-heading text-2xl font-bold text-mate-800">¡Mensaje enviado!</h3>
-        <p className="text-muted-foreground">Nos pondremos en contacto a la brevedad.</p>
+        <h3 className="font-heading text-2xl font-bold text-mate-800">
+          ¡Mensaje enviado!
+        </h3>
+        <p className="text-muted-foreground">
+          Nos pondremos en contacto a la brevedad.
+        </p>
         <Button
           variant="outline"
           onClick={() => {
@@ -70,7 +74,9 @@ export function ContactForm() {
             onChange={(e) => handleChange("name", e.target.value)}
             placeholder="Tu nombre"
           />
-          {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
+          {errors.name && (
+            <p className="text-xs text-destructive">{errors.name}</p>
+          )}
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="c-email">Email</Label>
@@ -81,7 +87,9 @@ export function ContactForm() {
             onChange={(e) => handleChange("email", e.target.value)}
             placeholder="tu@email.com"
           />
-          {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-xs text-destructive">{errors.email}</p>
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-1.5">
@@ -92,7 +100,9 @@ export function ContactForm() {
           onChange={(e) => handleChange("subject", e.target.value)}
           placeholder="¿En qué podemos ayudarte?"
         />
-        {errors.subject && <p className="text-xs text-destructive">{errors.subject}</p>}
+        {errors.subject && (
+          <p className="text-xs text-destructive">{errors.subject}</p>
+        )}
       </div>
       <div className="flex flex-col gap-1.5">
         <Label htmlFor="c-message">Mensaje</Label>
@@ -103,7 +113,9 @@ export function ContactForm() {
           onChange={(e) => handleChange("message", e.target.value)}
           placeholder="Escribí tu mensaje acá..."
         />
-        {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
+        {errors.message && (
+          <p className="text-xs text-destructive">{errors.message}</p>
+        )}
       </div>
       <Button
         type="submit"

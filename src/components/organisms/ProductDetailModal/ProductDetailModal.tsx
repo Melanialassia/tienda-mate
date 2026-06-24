@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { X, MapPin, Weight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/atoms/ui/badge";
 import { ProductTag } from "@/components/atoms";
 import { PRODUCT_CATEGORY_LABELS } from "@/constants";
 import type { Product } from "@/types";
@@ -12,11 +12,16 @@ interface ProductDetailModalProps {
   onClose: () => void;
 }
 
-export function ProductDetailModal({ product, onClose }: ProductDetailModalProps) {
+export function ProductDetailModal({
+  product,
+  onClose,
+}: ProductDetailModalProps) {
   useEffect(() => {
     if (!product) return;
     document.body.style.overflow = "hidden";
-    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
     window.addEventListener("keydown", handleKey);
     return () => {
       document.body.style.overflow = "";
@@ -64,7 +69,10 @@ export function ProductDetailModal({ product, onClose }: ProductDetailModalProps
         {/* Content */}
         <div className="p-6 md:p-8 flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="outline" className="border-mate-600 text-mate-700 text-xs">
+            <Badge
+              variant="outline"
+              className="border-mate-600 text-mate-700 text-xs"
+            >
               {PRODUCT_CATEGORY_LABELS[product.category] ?? product.category}
             </Badge>
           </div>
@@ -94,9 +102,13 @@ export function ProductDetailModal({ product, onClose }: ProductDetailModalProps
 
           {/* Description */}
           <div className="flex flex-col gap-3">
-            <p className="text-base text-foreground leading-relaxed">{product.description}</p>
+            <p className="text-base text-foreground leading-relaxed">
+              {product.description}
+            </p>
             {product.details && (
-              <p className="text-sm text-muted-foreground leading-relaxed">{product.details}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {product.details}
+              </p>
             )}
           </div>
         </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/atoms/ui/button";
 import { PageLayout } from "@/components/templates";
 import { Hero } from "@/components/organisms";
 import { SectionTitle } from "@/components/atoms";
@@ -41,7 +41,7 @@ export default function HomePage() {
               href="/tienda"
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "border-mate-800 text-mate-800 hover:bg-mate-800 hover:text-cream"
+                "border-mate-800 text-mate-800 hover:bg-mate-800 hover:text-cream",
               )}
             >
               Ver todos
@@ -71,11 +71,15 @@ export default function HomePage() {
             Abrí tu propia tienda de mate
           </h2>
           <p className="text-mate-200 max-w-lg mx-auto mb-8">
-            Sumate a nuestra red de franquicias y emprendé con el respaldo de una marca reconocida.
+            Sumate a nuestra red de franquicias y emprendé con el respaldo de
+            una marca reconocida.
           </p>
           <Link
             href="/franquicias"
-            className={cn(buttonVariants({ size: "lg" }), "bg-gold-600 text-mate-900 hover:bg-gold-500 font-semibold")}
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "bg-gold-600 text-mate-900 hover:bg-gold-500 font-semibold",
+            )}
           >
             Quiero saber más
           </Link>

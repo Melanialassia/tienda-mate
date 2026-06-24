@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/atoms/ui/button";
 
 export function Hero() {
   return (
@@ -23,18 +23,25 @@ export function Hero() {
             <span className="text-gold-400">nuestro ritual</span>
           </h1>
           <p className="text-mate-200 text-lg leading-relaxed mb-8 max-w-lg">
-            Yerbas seleccionadas, mates artesanales y todo lo que necesitás para vivir la experiencia mate como se merece.
+            Yerbas seleccionadas, mates artesanales y todo lo que necesitás para
+            vivir la experiencia mate como se merece.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/tienda"
-              className={cn(buttonVariants({ size: "lg" }), "bg-gold-600 text-mate-900 hover:bg-gold-500 font-semibold")}
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "bg-gold-600 text-mate-900 hover:bg-gold-500 font-semibold",
+              )}
             >
               Ver Productos
             </Link>
             <Link
               href="/menu-tienda"
-              className={cn(buttonVariants({ size: "lg", variant: "outline" }), "border-cream text-mate-900  hover:bg-mate-800 hover:border-mate-800 hover:text-cream")}
+              className={cn(
+                buttonVariants({ size: "lg", variant: "outline" }),
+                "border-cream text-mate-900  hover:bg-mate-800 hover:border-mate-800 hover:text-cream",
+              )}
             >
               Nuestro Menú
             </Link>

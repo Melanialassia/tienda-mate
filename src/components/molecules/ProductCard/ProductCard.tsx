@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/atoms/ui/card";
+import { Badge } from "@/components/atoms/ui/badge";
 import { ProductTag } from "@/components/atoms";
 import { PRODUCT_CATEGORY_LABELS } from "@/constants";
 import type { Product } from "@/types";
@@ -34,7 +34,10 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
           )}
         </div>
         <CardContent className="p-5 flex flex-col gap-2">
-          <Badge variant="outline" className="w-fit text-xs border-mate-600 text-mate-700">
+          <Badge
+            variant="outline"
+            className="w-fit text-xs border-mate-600 text-mate-700"
+          >
             {PRODUCT_CATEGORY_LABELS[product.category] ?? product.category}
           </Badge>
           <div>
@@ -42,10 +45,14 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
               {product.name}
             </h3>
             {product.weight && (
-              <span className="text-xs text-muted-foreground">{product.weight}</span>
+              <span className="text-xs text-muted-foreground">
+                {product.weight}
+              </span>
             )}
           </div>
-          <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
+          <p className="text-sm text-muted-foreground line-clamp-2">
+            {product.description}
+          </p>
           <span className="mt-2 flex items-center gap-1 text-xs font-semibold text-gold-700 group-hover:gap-2 transition-all">
             Ver más <ChevronRight size={14} />
           </span>

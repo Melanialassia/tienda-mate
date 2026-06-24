@@ -1,5 +1,5 @@
 import { MapPin, Clock } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/atoms/ui/badge";
 import type { WorkPosition } from "@/types";
 
 interface PositionCardProps {
@@ -16,8 +16,13 @@ export function PositionCard({ position }: PositionCardProps) {
   return (
     <div className="border border-border rounded-lg p-5 hover:border-gold-600 hover:shadow-md transition-all duration-200 bg-card">
       <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-        <h3 className="font-heading text-lg font-semibold text-mate-800">{position.title}</h3>
-        <Badge variant="outline" className="border-gold-600 text-gold-700 text-xs">
+        <h3 className="font-heading text-lg font-semibold text-mate-800">
+          {position.title}
+        </h3>
+        <Badge
+          variant="outline"
+          className="border-gold-600 text-gold-700 text-xs"
+        >
           {TYPE_LABEL[position.type]}
         </Badge>
       </div>

@@ -1,10 +1,16 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/atoms/ui/button";
+import { Input } from "@/components/atoms/ui/input";
+import { Label } from "@/components/atoms/ui/label";
+import { Textarea } from "@/components/atoms/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/atoms/ui/select";
 import { workSchema } from "@/interfaces/work.interface";
 import type { WorkFormValues } from "@/interfaces";
 import { CheckCircle } from "lucide-react";
@@ -54,13 +60,23 @@ export function WorkForm() {
     return (
       <div className="flex flex-col items-center gap-4 py-12 text-center">
         <CheckCircle size={48} className="text-mate-600" />
-        <h3 className="font-heading text-2xl font-bold text-mate-800">¡Postulación recibida!</h3>
-        <p className="text-muted-foreground">Revisaremos tu perfil y te contactaremos si hay una oportunidad.</p>
+        <h3 className="font-heading text-2xl font-bold text-mate-800">
+          ¡Postulación recibida!
+        </h3>
+        <p className="text-muted-foreground">
+          Revisaremos tu perfil y te contactaremos si hay una oportunidad.
+        </p>
         <Button
           variant="outline"
           onClick={() => {
             setSubmitted(false);
-            setValues({ name: "", email: "", phone: "", position: "", message: "" });
+            setValues({
+              name: "",
+              email: "",
+              phone: "",
+              position: "",
+              message: "",
+            });
           }}
         >
           Postularme a otro puesto
@@ -80,7 +96,9 @@ export function WorkForm() {
             onChange={(e) => handleChange("name", e.target.value)}
             placeholder="Tu nombre"
           />
-          {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
+          {errors.name && (
+            <p className="text-xs text-destructive">{errors.name}</p>
+          )}
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="w-email">Email</Label>
@@ -91,7 +109,9 @@ export function WorkForm() {
             onChange={(e) => handleChange("email", e.target.value)}
             placeholder="tu@email.com"
           />
-          {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-xs text-destructive">{errors.email}</p>
+          )}
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="w-phone">Teléfono</Label>
@@ -101,11 +121,16 @@ export function WorkForm() {
             onChange={(e) => handleChange("phone", e.target.value)}
             placeholder="+54 11 ..."
           />
-          {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
+          {errors.phone && (
+            <p className="text-xs text-destructive">{errors.phone}</p>
+          )}
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="w-position">Puesto de interés</Label>
-          <Select value={values.position} onValueChange={(v) => handleChange("position", v ?? "")}>
+          <Select
+            value={values.position}
+            onValueChange={(v) => handleChange("position", v ?? "")}
+          >
             <SelectTrigger id="w-position">
               <SelectValue placeholder="Seleccioná un puesto" />
             </SelectTrigger>
@@ -117,7 +142,9 @@ export function WorkForm() {
               ))}
             </SelectContent>
           </Select>
-          {errors.position && <p className="text-xs text-destructive">{errors.position}</p>}
+          {errors.position && (
+            <p className="text-xs text-destructive">{errors.position}</p>
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-1.5">
@@ -129,7 +156,9 @@ export function WorkForm() {
           onChange={(e) => handleChange("message", e.target.value)}
           placeholder="Contanos tu experiencia, disponibilidad y por qué querés trabajar con nosotros..."
         />
-        {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
+        {errors.message && (
+          <p className="text-xs text-destructive">{errors.message}</p>
+        )}
       </div>
       <Button
         type="submit"
