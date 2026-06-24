@@ -73,3 +73,10 @@ El servidor de desarrollo corre en [http://localhost:3000](http://localhost:3000
 - **Datos estáticos**: los productos, menú y tutoriales se definen en `/src/constants` (sin base de datos por ahora).
 - **Estado global**: Zustand maneja los filtros de categoría en las páginas de tienda, menú y tutoriales.
 - **Validación**: Zod se usa en los formularios de contacto, franquicias y trabajá con nosotros.
+
+## Equipo de Desarrollo
+
+| Desarrollador | Rol | GitHub |
+|---|---|---|
+| Alexis Lopez | Frontend Developer | [@alesl10](https://github.com/alesl10) |
+| Melani Alassia | Frontend Developer | [@Melanialassia](https://github.com/Melanialassia) |
