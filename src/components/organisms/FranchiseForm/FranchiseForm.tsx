@@ -118,9 +118,13 @@ export function FranchiseForm() {
           <Label htmlFor="f-phone">Teléfono</Label>
           <Input
             id="f-phone"
+            inputMode="numeric"
+            maxLength={14}
             value={values.phone}
-            onChange={(e) => handleChange("phone", e.target.value)}
-            placeholder="+54 11 ..."
+            onChange={(e) =>
+              handleChange("phone", e.target.value.replace(/\D/g, ""))
+            }
+            placeholder="1123456789"
           />
           {errors.phone && (
             <p className="text-xs text-destructive">{errors.phone}</p>
