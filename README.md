@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tienda de Mate
 
-## Getting Started
+Sitio web de e-commerce para una tienda de mate argentina. Proyecto grupal (TPO) desarrollado con Next.js, React y TypeScript.
 
-First, run the development server:
+## Stack tecnológico
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Tecnología | Uso |
+|---|---|
+| Next.js 16 | Framework principal (App Router) |
+| React 19 | UI |
+| TypeScript | Tipado estático |
+| Tailwind CSS v4 | Estilos |
+| shadcn/ui | Componentes base |
+| Zustand | Estado global (filtros) |
+| Zod | Validación de formularios |
+
+## Páginas
+
+| Ruta | Descripción |
+|---|---|
+| `/` | Home con hero, beneficios y productos destacados |
+| `/tienda` | Catálogo de productos con filtros por categoría |
+| `/menu-tienda` | Menú de la tienda física |
+| `/tutoriales` | Tutoriales sobre el mate |
+| `/franquicias` | Información para abrir una franquicia |
+| `/trabaja-con-nosotros` | Formulario de postulación laboral |
+| `/contacto` | Formulario de contacto |
+
+## Estructura del proyecto
+
+```
+src/
+├── app/              # Rutas (App Router de Next.js)
+├── components/
+│   ├── atoms/        # Componentes mínimos (botón, título, etc.)
+│   ├── molecules/    # Combinaciones de átomos (cards, etc.)
+│   ├── organisms/    # Secciones completas (hero, navbar, etc.)
+│   ├── templates/    # Layouts de página
+│   ├── pages/        # Componentes de página completa
+│   └── ui/           # Componentes de shadcn/ui
+├── constants/        # Datos estáticos (productos, menú, etc.)
+├── interfaces/       # Interfaces TypeScript
+├── types/            # Tipos TypeScript
+├── store/            # Estado global con Zustand
+├── hooks/            # Custom hooks
+└── lib/              # Utilidades
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instalación y uso
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Instalar dependencias
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Servidor de desarrollo
+npm run dev
 
-## Learn More
+# Build de producción
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+# Iniciar en producción
+npm start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Linter
+npm run lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+El servidor de desarrollo corre en [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+## Decisiones de arquitectura
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Atomic Design**: los componentes siguen la jerarquía átomos → moléculas → organismos → templates → páginas.
+- **Datos estáticos**: los productos, menú y tutoriales se definen en `/src/constants` (sin base de datos por ahora).
+- **Estado global**: Zustand maneja los filtros de categoría en las páginas de tienda, menú y tutoriales.
+- **Validación**: Zod se usa en los formularios de contacto, franquicias y trabajá con nosotros.
